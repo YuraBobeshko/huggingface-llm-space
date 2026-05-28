@@ -35,12 +35,13 @@ placed at the root of the Hugging Face Space repository, not inside a nested
 folder. Hugging Face reads the Docker Space metadata from the root `README.md`
 and builds the root `Dockerfile`.
 
-The Docker build downloads `qwen2.5-coder:3b` into the image. This makes the
+The Docker build downloads `qwen2.5-coder:7b` into the image. This makes the
 build slower, but the model remains available after runtime restarts without
 depending on persistent Space storage.
 
 For a smaller build on CPU hardware, change the Dockerfile build argument
-default from `qwen2.5-coder:3b` to `qwen2.5-coder:1.5b`.
+default from `qwen2.5-coder:7b` to `qwen2.5-coder:3b` or
+`qwen2.5-coder:1.5b`.
 
 The model is downloaded during the Docker image build. Do not change
 `OLLAMA_MODEL` only as a runtime variable in the Space settings: rebuild the
@@ -78,7 +79,7 @@ in the hosting dashboard:
 ```env
 LLM_PROVIDER=ollama
 OLLAMA_BASE_URL=https://YOUR_SPACE.hf.space
-OLLAMA_MODEL=qwen2.5-coder:3b
+OLLAMA_MODEL=qwen2.5-coder:7b
 LLM_FALLBACK_TO_MOCK=false
 ```
 

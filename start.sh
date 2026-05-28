@@ -4,7 +4,7 @@ set -euo pipefail
 export PORT="${PORT:-7860}"
 export OLLAMA_HOST="${OLLAMA_HOST:-127.0.0.1:11434}"
 export OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-http://127.0.0.1:11434}"
-export OLLAMA_MODEL="${OLLAMA_MODEL:-qwen2.5-coder:3b}"
+export OLLAMA_MODEL="${OLLAMA_MODEL:-qwen2.5-coder:7b}"
 
 echo "[$(date -Iseconds)] [STARTUP] Starting internal Ollama service for ${OLLAMA_MODEL}..."
 ollama serve >/tmp/ollama.log 2>&1 &

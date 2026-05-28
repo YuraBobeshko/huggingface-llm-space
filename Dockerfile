@@ -14,7 +14,7 @@ ENV HOME=/home/node \
     OLLAMA_HOST=127.0.0.1:11434 \
     OLLAMA_BASE_URL=http://127.0.0.1:11434
 
-ARG OLLAMA_MODEL=qwen2.5-coder:3b
+ARG OLLAMA_MODEL=qwen2.5-coder:7b
 ENV OLLAMA_MODEL=${OLLAMA_MODEL}
 
 WORKDIR /home/node/app

@@ -4,7 +4,7 @@ import { randomUUID } from "node:crypto";
 const port = Number.parseInt(process.env.PORT ?? "7860", 10);
 const ollamaBaseUrl =
   process.env.OLLAMA_BASE_URL ?? "http://127.0.0.1:11434";
-const model = process.env.OLLAMA_MODEL ?? "qwen2.5-coder:3b";
+const model = process.env.OLLAMA_MODEL ?? "qwen2.5-coder:7b";
 const maximumBodySize = 1024 * 1024;
 
 const log = (level, event, details) => {
