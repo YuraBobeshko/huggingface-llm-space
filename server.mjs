@@ -187,8 +187,20 @@ const server = http.createServer(async (request, response) => {
         "GENERATE_START",
         `requestId=${requestId} model=${model} promptChars=${body.prompt.length}`,
       );
+      const abortController = new AbortController();
+      let didFinishResponse = false;
+      response.on("finish", () => {
+        didFinishResponse = true;
+      });
+      response.on("close", () => {
+        if (!didFinishResponse) {
+          abortController.abort();
+        }
+      });
+
       const upstream = await fetch(`${ollamaBaseUrl}/api/generate`, {
         method: "POST",
+        signal: abortController.signal,
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ...body, model, stream: false }),
       });
