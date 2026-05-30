@@ -77,10 +77,8 @@ For a separately hosted `backend-api` service, set these environment variables
 in the hosting dashboard:
 
 ```env
-LLM_PROVIDER=ollama
 OLLAMA_BASE_URL=https://YOUR_SPACE.hf.space
 OLLAMA_MODEL=qwen2.5-coder:3b
-LLM_FALLBACK_TO_MOCK=false
 ```
 
 To run the backend locally against the hosted Space:
